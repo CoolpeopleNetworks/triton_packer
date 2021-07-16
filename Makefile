@@ -8,4 +8,4 @@ init:
 	packer init .
 
 debian-9-cloudinit: init
-	packer build debian-9-cloudinit.pkr.hcl
+	packer build -force debian-9-cloudinit.pkr.hcl
