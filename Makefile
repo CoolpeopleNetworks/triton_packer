@@ -4,8 +4,8 @@ export PKR_VAR_triton_account=$(SDC_ACCOUNT)
 export PKR_VAR_triton_key_id=$(SDC_KEY_ID)
 export PKR_VAR_triton_url=$(SDC_URL)
 
-init:
-	packer init .
+all:
 
-debian-9-cloudinit: init
+debian-9-cloudinit:
+	packer init debian-9-cloudinit.pkr.hcl
 	packer build -force debian-9-cloudinit.pkr.hcl

@@ -43,7 +43,9 @@ build {
     inline = [
       "apt-get update -y",
       "apt-get install -y ssh-import-id",
-      "apt-get install -y cloud-init",
+      "apt-get install -y python3-jsonschema python3-configobj python3-jinja2 python3-jsonpatch python3-oauthlib python3-yaml gdisk net-tools",
+      "wget http://ftp.us.debian.org/debian/pool/main/c/cloud-init/cloud-init_20.4.1-2_all.deb -O /tmp/cloud-init_20.4.1-2_all.deb",
+      "dpkg -i /tmp/cloud-init_20.4.1-2_all.deb",
       "systemctl enable cloud-init",
     ]
   }
