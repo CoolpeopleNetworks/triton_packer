@@ -10,6 +10,10 @@ variable "triton_key_id" {
   type = string
 }
 
+variable "image_version" {
+  type = string
+}
+
 packer {
   required_plugins {
     triton = {
@@ -21,7 +25,7 @@ packer {
 
 source "triton" "debian-9-cloudinit" {
   image_name    = "debian-9-cloudinit"
-  image_version = "1.0.0"
+  image_version = "${var.image_version}"
   source_machine_image_filter {
     most_recent = "true"
     name        = "debian-9"
