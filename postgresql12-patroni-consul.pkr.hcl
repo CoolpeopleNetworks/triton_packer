@@ -35,7 +35,7 @@ source "triton" "postgresql12-patroni-consul" {
     name        = "base-64-lts"
     type        = "zone-dataset"
   }
-  source_machine_name    = "image_builder_base64"
+  source_machine_name    = "image_builder_${uuidv4()}"
   source_machine_package = "k1-highcpu-512m"
   ssh_username           = "root"
 
@@ -48,12 +48,12 @@ build {
   sources = ["source.triton.postgresql12-patroni-consul"]
 
   provisioner "file" {
-    source = "${path.root}/postgresql12-patroni/consul.xml"
+    source = "${path.root}/smf_manifests/consul.xml"
     destination = "/opt/consul.xml"
   }
 
   provisioner "file" {
-    source = "${path.root}/postgresql12-patroni/patroni.xml"
+    source = "${path.root}/smf_manifests/patroni.xml"
     destination = "/opt/patroni.xml"
   }
 

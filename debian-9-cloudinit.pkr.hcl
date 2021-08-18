@@ -31,7 +31,7 @@ source "triton" "debian-9-cloudinit" {
     name        = "debian-9"
     type        = "lx-dataset"
   }
-  source_machine_name    = "image_builder"
+  source_machine_name    = "image_builder_${uuidv4()}"
   source_machine_package = "k1-highcpu-512m"
   ssh_username           = "root"
 
