@@ -108,7 +108,15 @@ build {
       "rm -rf /root/postgresql-12.8",
 
       # Install the patroni service xml
-      "svccfg import /opt/patroni.xml"
+      "svccfg import /opt/patroni.xml",
+
+      # Build and install pgbackrest
+      "pkgin -y install git",
+      "pkgin -y install pkg-config",
+      "pkgin -y install libyaml",
+      "git clone https://github.com/CoolpeopleNetworks/pgbackrest.git /tmp/pgbackrest -b illumos_fixes",
+      "cd /tmp/pgbackrest/src && LIBS=-lsocket ./configure --prefix=/opt/local",
+      "cd /tmp/pgbackrest/src && LIBS=-lsocket make install",
     ]
   }
 

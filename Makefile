@@ -17,4 +17,4 @@ fabio:
 
 postgresql12-patroni-consul:
 	packer init postgresql12-patroni-consul.pkr.hcl
-	packer build -force -var "image_version=20210815" postgresql12-patroni-consul.pkr.hcl
+	packer build -force -var "image_version=20210827" postgresql12-patroni-consul.pkr.hcl
